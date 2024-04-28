@@ -15,6 +15,8 @@ model Restaurant {
   deliveryTimeMinutes Int
   categories          Category[]
   products            Product[]
+
+  @@map("restaurants")
 }
 
 model Category {
@@ -23,6 +25,8 @@ model Category {
   imageUrl    String
   restaurants Restaurant[]
   products    Product[]
+
+  @@map("categories")
 }
 
 model Product {
@@ -36,4 +40,6 @@ model Product {
   restaurant         Restaurant @relation(fields: [restaurantId], references: [id])
   categoryId         String
   category           Category   @relation(fields: [categoryId], references: [id])
+
+  @@map("products")
 }
