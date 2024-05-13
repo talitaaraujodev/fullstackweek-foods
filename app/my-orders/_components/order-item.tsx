@@ -6,7 +6,8 @@ import { Card, CardContent } from "@/app/_components/ui/card";
 import { Separator } from "@/app/_components/ui/separator";
 import { CartContext } from "@/app/_context/cart";
 import { formatCurrency } from "@/app/_helpers/price";
-import { OrderStatus, Prisma } from "@prisma/client";
+import { getOrderStatusLabel } from "@/app/_lib/utils";
+import { Prisma } from "@prisma/client";
 import { ChevronRightIcon } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -24,21 +25,6 @@ interface OrderItemProps {
     };
   }>;
 }
-
-const getOrderStatusLabel = (status: OrderStatus) => {
-  switch (status) {
-    case "CANCELED":
-      return "Cancelado";
-    case "COMPLETED":
-      return "Finalizado";
-    case "CONFIRMED":
-      return "Confirmado";
-    case "DELIVERING":
-      return "Em Transporte";
-    case "PREPARING":
-      return "Preparando";
-  }
-};
 
 const OrderItem = ({ order }: OrderItemProps) => {
   const router = useRouter();
