@@ -27,19 +27,9 @@ interface ICartContext {
   totalQuantity: number;
   addProductToCart: ({
     product,
-    quantity,
     emptyCart,
   }: {
-    product: Prisma.ProductGetPayload<{
-      include: {
-        restaurant: {
-          select: {
-            deliveryFee: true;
-          };
-        };
-      };
-    }>;
-    quantity: number;
+    product: CartProduct;
     emptyCart?: boolean;
   }) => void;
   decreaseProductQuantity: (productId: string) => void;
@@ -137,26 +127,14 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
-  const addProductToCart = ({
+  const addProductToCart: ICartContext["addProductToCart"] = ({
     product,
-    quantity,
     emptyCart,
-  }: {
-    product: Prisma.ProductGetPayload<{
-      include: {
-        restaurant: {
-          select: {
-            deliveryFee: true;
-          };
-        };
-      };
-    }>;
-    quantity: number;
-    emptyCart?: boolean;
   }) => {
     if (emptyCart) {
       setProducts([]);
     }
+
     // verfiy if product exists on cart
     const isProductAlreadyOnCart = products.some(
       (cartProduct) => cartProduct.id === product.id,
@@ -168,7 +146,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
           if (cartProduct.id === product.id) {
             return {
               ...cartProduct,
-              quantity: cartProduct.quantity + quantity,
+              quantity: cartProduct.quantity + product.quantity,
             };
           }
 
@@ -176,7 +154,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         }),
       );
     }
-    setProducts((prev) => [...prev, { ...product, quantity: quantity }]);
+
+    setProducts((prev) => [...prev, product]);
   };
 
   return (

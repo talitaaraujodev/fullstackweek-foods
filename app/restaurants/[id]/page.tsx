@@ -58,6 +58,7 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
   return (
     <div>
       <RestaurantImage restaurant={restaurant} />
+
       <div className="relative z-50 mt-[-1.5rem] flex items-center justify-between rounded-tl-3xl rounded-tr-3xl bg-white px-5 pt-5">
         <div className="flex items-center gap-[0.375rem]">
           <div className="relative h-8 w-8">
@@ -76,6 +77,7 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
           <span className="text-xs font-semibold">5.0</span>
         </div>
       </div>
+
       <div className="px-5">
         <DeliveryInfo restaurant={restaurant} />
       </div>
@@ -91,6 +93,7 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
           </div>
         ))}
       </div>
+
       <div className="mt-6 space-y-4">
         <h2 className="px-5  font-semibold">Mais Pedidos</h2>
         <ProductList products={restaurant.products} />
