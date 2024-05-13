@@ -12,11 +12,11 @@ export const authOptions: AuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
   ],
-  // callbacks: {
-  //   async session({ session, user }) {
-  //     session.user = { ...session.user, id: user.id };
-  //     return session;
-  //   },
-  // },
+  callbacks: {
+    async session({ session, user }) {
+      session.user = { ...session.user, id: user.id };
+      return session;
+    },
+  },
   secret: process.env.NEXTAUTH_SECRET,
 };
