@@ -23,13 +23,13 @@ import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { Separator } from "@radix-ui/react-separator";
 
 const Header = () => {
-  const { data, status } = useSession();
+  const { data } = useSession();
 
   const handleSignOutClick = () => signOut();
   const handleSignInClick = () => signIn();
 
   return (
-    <div className="flex justify-between px-5 pt-6">
+    <div className="flex justify-between border-b border-b-gray-200 px-5 pb-2 pt-6">
       <div className="relative h-[30px] w-[100px]">
         <Link href="/">
           <Image

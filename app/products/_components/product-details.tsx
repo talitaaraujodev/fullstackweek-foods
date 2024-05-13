@@ -2,7 +2,13 @@
 
 import Image from "next/image";
 import { useContext, useState } from "react";
-import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+import {
+  Badge,
+  BaggageClaimIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ShoppingBag,
+} from "lucide-react";
 import { Prisma } from "@prisma/client";
 import DiscountBadge from "@/app/_components/discount-badge";
 import { Button } from "@/app/_components/ui/button";
@@ -158,12 +164,13 @@ const ProductDetails = ({
           <ProductList products={complementaryProducts} />
         </div>
 
-        <div className="mt-6 px-5">
+        <div className="mt-6 border-t-0 px-5 md:flex md:items-center md:justify-end md:border-t-2 md:border-gray-200 md:pt-3 ">
           <Button
-            className="w-full font-semibold"
+            className="w-full font-semibold md:flex md:w-[15%] md:items-center"
             onClick={handleAddToCartClick}
           >
             Adicionar à sacola
+            <ShoppingBag className="ml-2" />
           </Button>
         </div>
       </div>

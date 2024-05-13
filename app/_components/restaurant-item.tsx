@@ -44,7 +44,7 @@ const RestaurantItem = ({
       href={`/restaurants/${restaurant.id}`}
       className={cn("min-w-[266px] max-w-[266px]", className)}
     >
-      <div className="min-w-[266px] max-w-[266px] space-y-3">
+      <div className="min-w-[220px] max-w-[220px] space-y-3">
         <div className="relative h-[136px] w-full">
           <Image
             src={restaurant.imageUrl}
@@ -60,7 +60,7 @@ const RestaurantItem = ({
           {data?.user.id && (
             <Button
               size="icon"
-              className="absolute right-2 top-2 h-7 w-7 rounded-full bg-gray-700"
+              className={`absolute right-2 top-2 h-7 w-7 rounded-full ${isFavorite ? "bg-red-700" : "bg-gray-700"}`}
               onClick={handleFavoriteClick}
             >
               <HeartIcon size={16} className="fill-white" />

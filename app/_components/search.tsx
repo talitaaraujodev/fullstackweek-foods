@@ -26,11 +26,11 @@ const Search = () => {
     <form className="flex gap-2" onSubmit={handleSearchSubmit}>
       <Input
         placeholder="Buscar restaurantes..."
-        className="border-none"
+        className="border-none py-6 outline-none"
         value={search}
         onChange={handleChange}
       />
-      <Button size={"icon"} type="submit">
+      <Button size={"icon"} type="submit" className="h-12 w-12">
         <SearchIcon size={20} />
       </Button>
     </form>

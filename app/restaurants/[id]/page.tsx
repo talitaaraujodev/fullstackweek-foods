@@ -8,6 +8,7 @@ import ProductList from "@/app/_components/product-list";
 import CartBanner from "./_components/cart-banner";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/_lib/auth";
+import Header from "@/app/_components/header";
 
 interface RestaurantPageProps {
   params: {
@@ -66,6 +67,7 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
 
   return (
     <div>
+      <Header />
       <RestaurantImage
         restaurant={restaurant}
         userFavoriteRestaurants={userFavoriteRestaurants}
@@ -107,13 +109,13 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
       </div>
 
       <div className="mt-6 space-y-4">
-        <h2 className="px-5  font-semibold">Mais Pedidos</h2>
+        <h2 className="px-5 font-semibold">Mais Pedidos</h2>
+
         <ProductList products={restaurant.products} />
       </div>
-
       {restaurant.categories.map((category) => (
         <div className="mt-6 space-y-4" key={category.id}>
-          <h2 className="px-5  font-semibold">{category.name}</h2>
+          <h2 className="px-5 font-semibold">{category.name}</h2>
           <ProductList products={category.products} />
         </div>
       ))}
