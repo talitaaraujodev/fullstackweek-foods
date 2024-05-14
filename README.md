@@ -1,6 +1,6 @@
 <div align="center">
 
-# FSW Food
+# Full Stack Week - FSW Food
 
 Esse projeto foi desenvolvido na full stack week edição #4 e tem como intuito a criação de pedidos semelhante a plataforma do Ifood.
 
