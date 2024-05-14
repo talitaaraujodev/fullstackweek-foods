@@ -1,6 +1,6 @@
 <div align="center">
 
-# Desafio Técnico Frontend - Fortes Tecnologia
+# FSW Food
 
 Esse projeto foi desenvolvido na full stack week edição #4
 
