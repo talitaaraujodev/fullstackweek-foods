@@ -62,7 +62,7 @@ http://localhost:3000
 #### Acesse no seu navegador a seguinte url:
 
 ```bash
-https://fswfoods-hy34h02d0-talitaaraujodevs-projects.vercel.app
+https://fswfoods-zeta.vercel.app
 ```
 
 ## 🎯 Tecnologias utilizadas
